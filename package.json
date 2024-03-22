@@ -2,7 +2,7 @@
   "name": "camper-rent-test-task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/camper-rent-test-task/",
+  "homepage": "https://YuriiKulchytskyi.github.io/camper-rent-test-task/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.16.3",
