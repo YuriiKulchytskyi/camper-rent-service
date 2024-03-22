@@ -1,0 +1,113 @@
+import {
+  colors
+} from "style/globalColors";
+import styled from "styled-components";
+
+export const SectionModal = styled.section `
+    width: 982px;
+    height: 720px;
+    border: none;
+    border-radius: 20px;
+    padding: 40px;
+    background-color: ${colors.white};
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+
+`
+export const ModalInformationWrapper = styled.div `
+position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 902px;
+    height: 110px;
+    justify-content: space-between;
+    align-items: start;
+    background-color: ${colors.white};
+    /* position: relative; */
+
+`
+export const ModalTitle = styled.h2 `
+    font-family: 'Inter Tight', sans-serif;
+    height: 30px;
+    width: auto;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: ${colors.dark};
+    overflow: hidden;
+`
+export const ModalPrice = styled.h2 `
+    height: 30px;
+    width: auto;
+    font-family: 'Inter Tight';
+    font-weight: 600;
+    margin: 0;
+    font-size: 24px;
+`
+
+export const ModalRateLocationWrapper = styled.div `
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 24px;
+    column-gap: 16px;
+`
+
+export const Rate = styled.div `
+    text-decoration: underline;
+`
+
+export const Location = styled.div `
+    position: relative;
+`
+
+export const ModalGallery = styled.ul `
+    width: 100%;
+    height: 310px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 16px;
+    list-style: none;
+    padding: 0;
+`
+
+export const ModalGalleryItem = styled.li `
+    border-radius: 10px;
+    width: 290px;
+    height: 310px;
+    transition: 1.5 ease;
+    `
+
+export const ModalDescription = styled.p `
+    width: 100%;
+    height: auto;
+    `
+
+export const ModalCloseButton = styled.button `
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    `
+
+export const ModalItemImage = styled.img `
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: .5s ease-in-out;
+     &:hover {
+       transform: scale(1.1);
+       object-fit: fill;
+     }
+`
+export const ModalTechInfo = styled.div `
+    margin-top: 110px;
+`
