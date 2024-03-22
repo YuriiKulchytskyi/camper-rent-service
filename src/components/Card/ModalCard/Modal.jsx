@@ -112,8 +112,8 @@ import {
   SectionModal,
   StyledLink,
 } from './ModalCard.styled';
-import { FeatureDetails } from 'components/Features/Details/FeatureDetails';
-import { FeaturesOptions } from 'components/Features/FeaturesOptions/FeaturesOptions';
+// import { FeatureDetails } from 'components/Features/Details/FeatureDetails';
+// import { FeaturesOptions } from 'components/Features/FeaturesOptions/FeaturesOptions';
 
 const Modal = ({ onClose, item }) => {
   useEffect(() => {

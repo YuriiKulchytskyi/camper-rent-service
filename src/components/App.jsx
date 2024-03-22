@@ -7,7 +7,7 @@ import { Layout } from './SharedLayout/Layout';
 import { CatalogPage } from 'pages/CatalogPage/CatalogPage';
 import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
 import { HomePage } from 'pages/HomePage/HomePage';
-import { FeatureDetails } from './Features/Details/FeatureDetails';
+// import { FeatureDetails } from './Features/Details/FeatureDetails';
 import { Feature } from './Features/Feature';
 
 export const App = () => {
