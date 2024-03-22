@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/camper-rent-service/static/css/main.7acaea2f.css",
+    "main.js": "/camper-rent-service/static/js/main.8ec45528.js",
+    "static/media/icons.svg": "/camper-rent-service/static/media/icons.c0c3fb0ea9c55085958806c790a5a8f9.svg",
+    "index.html": "/camper-rent-service/index.html",
+    "main.7acaea2f.css.map": "/camper-rent-service/static/css/main.7acaea2f.css.map",
+    "main.8ec45528.js.map": "/camper-rent-service/static/js/main.8ec45528.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.8ec45528.js"
+  ]
+}
