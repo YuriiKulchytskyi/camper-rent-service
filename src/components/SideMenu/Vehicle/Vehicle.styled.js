@@ -133,9 +133,20 @@ export const FiltersTitle = styled.h4 `
         text-align: left;
         margin: 0;
 `
-export const FiltersWrapper = styled.div`
+export const FiltersWrapper = styled.div `
     display: flex;
     flex-direction: column;
     row-gap: 30px;
+
+`
+
+export const RadioButton = styled.input `
+
+    &:checked,
+    &:active{
+        &>svg{
+            stroke: ${colors.red};
+        }
+    }
 
 `

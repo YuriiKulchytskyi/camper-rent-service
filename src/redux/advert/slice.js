@@ -1,9 +1,32 @@
-// import { createSlice } from "@reduxjs/toolkit";
+import {
+  createSlice
+} from "@reduxjs/toolkit";
+import {
+  fetchAdverts
+} from "./operations";
 
-// const camperSlice = createSlice({
-//     type: 'camper',
-//     reducers:
-// })
+const advertsSlice = createSlice({
+  name: 'adverts',
+  initialState: {
+    adverts: [],
+    isLoading: false,
+    error: null
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchAdverts.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAdverts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.adverts = action.payload;
+      })
+      .addCase(fetchAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
+});
 
-
-// export const camperSlice;
+export const advertsReducer = advertsSlice.reducer;

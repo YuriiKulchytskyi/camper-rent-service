@@ -19,40 +19,20 @@ import {
   ImageWrapper,
 } from './Card.styled';
 import icons from '../../../images/icons.svg';
+// import { useEffect, useState } from 'react';
 
-export const Card = ({
-  id,
-  gallery,
-  name,
-  price,
-  rate,
-  description,
-  location,
-  reviews,
-  adults,
-  transmission,
-  engine,
-  kitchen,
-  beds,
-  airConditioner,
-  openModal,
-}) => {
-  const handleButtonClick = () => {
-    console.log(`Clicked on card with id: ${id}`); // Виводимо id картки у консоль
-    openModal(id);
-  };
-
+export const Card = ({ card, onClick }) => {
   return (
     <CardWrapper>
       <ImageWrapper>
-        <Image src={gallery} alt="camper" />
+        <Image src={card.gallery[0]} alt="camper" />
       </ImageWrapper>
       <InformationWrapper>
         <MainInformationWrapper>
           <TitlePriceInfo>
-            <Title>{name}</Title>
+            <Title>{card.name}</Title>
             <PriceLikeSection>
-              <Price>€{price},00</Price>
+              <Price>€{card.price},00</Price>
               <ButtonLike>
                 <Svg width={'24px'} height={'24px'}>
                   <use href={`${icons}#icon-like`}></use>
@@ -65,57 +45,56 @@ export const Card = ({
               <Svg width={'16px'} height={'16px'}>
                 <use href={`${icons}#icon-star`} />
               </Svg>
-              {rate}({reviews} reviews)
+              {card.rating}({card.reviews.length} reviews)
             </Rate>
             <Location>
               <Svg width={'16px'} height={'16px'}>
                 <use href={`${icons}#icon-map-pin`} />
               </Svg>
-              {location}
+              {card.location}
             </Location>
           </RateLocationWrapper>
         </MainInformationWrapper>
-        <Description>{description}</Description>
+        <Description>{card.description}</Description>
         <ListOfInformation>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-Adults`}></use>
             </Svg>
-            {adults} Adults
+            {card.adults} Adults
           </ListItem>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-Container`}></use>
             </Svg>
-            {transmission}
+            {card.transmission}
           </ListItem>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-Vertical-container`}></use>
             </Svg>
-            {engine}
+            {card.engine}
           </ListItem>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-Horizontal-container`}></use>
             </Svg>
-            {kitchen} Kitchen
+            {card.details.kitchen} Kitchen
           </ListItem>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-Container-1`}></use>
             </Svg>
-            {beds} Beds
+            {card.details.beds} Beds
           </ListItem>
           <ListItem>
             <Svg width={'20px'} height={'20px'}>
               <use href={`${icons}#icon-wind-icon`}></use>
             </Svg>
-            {airConditioner} AC
+            {card.details.airConditioner} AC
           </ListItem>
         </ListOfInformation>
-        <Button onClick={handleButtonClick}>Show more</Button>{' '}
-        {/* Викликаємо handleButtonClick при кліку */}
+        <Button onClick={onClick}>Show more</Button>
       </InformationWrapper>
     </CardWrapper>
   );

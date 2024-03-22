@@ -1,4 +1,7 @@
 import {
+  NavLink
+} from "react-router-dom";
+import {
   colors
 } from "style/globalColors";
 import styled from "styled-components";
@@ -15,10 +18,12 @@ export const SectionModal = styled.section `
     overflow-y: scroll;
     scroll-behavior: smooth;
     scrollbar-width: thin;
+    overflow-x: hidden;
+    overflow-y:unset;
+
 
 `
 export const ModalInformationWrapper = styled.div `
-position: fixed;
     display: flex;
     flex-direction: column;
     width: 902px;
@@ -26,7 +31,7 @@ position: fixed;
     justify-content: space-between;
     align-items: start;
     background-color: ${colors.white};
-    /* position: relative; */
+    position: relative;
 
 `
 export const ModalTitle = styled.h2 `
@@ -109,5 +114,81 @@ export const ModalItemImage = styled.img `
      }
 `
 export const ModalTechInfo = styled.div `
-    margin-top: 110px;
+    margin-top: 30px;
 `
+export const ModalBackdrop = styled.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+`;
+
+
+export const Backdrop = styled.div `
+       position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+         display: flex;
+         justify-content: center;
+         z-index: 1000;
+         align-items: center;
+`
+export const ModalContent = styled.div `
+        background-color: '#fff';
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 80%;
+          max-height: 80%;
+          overflow: auto;
+          position: relative;
+          z-index: 1001;
+        
+`
+
+export const AdditionalNaw = styled.nav `
+  margin-top: 44px;
+  margin-bottom: 68px;
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  position: relative;
+
+  &
+  ::after {
+    position: absolute;
+    content: '';
+    background-color: rgba(16, 24, 40, 0.2);
+    height: 1px;
+    width: 100%;
+    bottom: -24px;
+  }
+`
+export const StyledLink = styled(NavLink)
+`
+  color: ${colors.grey};
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  position: relative;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+
+  &.active {
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: ${colors.red};
+      height: 5px;
+      width: 100%;
+      bottom: -26px;
+    }
+  }
+`;

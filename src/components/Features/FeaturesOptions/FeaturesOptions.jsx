@@ -5,19 +5,19 @@ import {
 } from './FeaturesOptions.style';
 import icons from '../../../images/icons.svg';
 
-export const FeaturesOptions = ({ details }) => {
+export const FeaturesOptions = ({ item }) => {
   const featureOptions = [
-    { icon: 'Users', label: `Adults: ${details.adults}` },
+    { icon: 'Adults', label: `${item.adults} Adults ` },
     { icon: 'Container', label: `Automatic` },
     { icon: 'wind-icon', label: `AC` },
     { icon: 'Vertical-container', label: `Petrol` },
     { icon: 'Horizontal-container', label: `Kitchen` },
-    { icon: 'Container-1', label: `Beds: ${details.beds}` },
-    { icon: 'air-conditioner', label: `Air Conditioner` },
+    { icon: 'Container-1', label: `${item.details.beds} Beds` },
+    { icon: 'hotel-air-conditioner', label: `Air Conditioner` },
     { icon: 'cd', label: `CD` },
     { icon: 'radio', label: `Radio` },
-    { icon: 'hob', label: `Hob: ${details.hob}` },
-  ].filter(({ icon }) => details[icon.replace('-', '')] !== 0);
+    { icon: 'hob', label: `${item.details.hob} Hob` },
+  ].filter(({ icon }) => item[icon.replace('-', '')] !== 0);
 
   return (
     <FeaturesOptionsList>

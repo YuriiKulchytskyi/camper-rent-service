@@ -4,7 +4,8 @@ export const MainWrapper = styled.div `
     width: 1440px;  
     flex-direction: row;
     display: flex;
-    padding: 64px 100px;
+    padding: 0 100px;
+    margin-top: 120px;
 `
 
 export const SideFilters = styled.aside `
@@ -19,6 +20,7 @@ export const Container = styled.div `
     height: 100%;
     display: flex;
     justify-content: center;
+    /* margin-top: 100px; */
 `
 export const CardHolder = styled.div `
     margin-left: 360px;
