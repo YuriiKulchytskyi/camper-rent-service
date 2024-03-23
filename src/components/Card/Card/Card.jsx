@@ -24,22 +24,42 @@ import {
   addToFavorite,
   removeFromFavorite,
 } from '../../../redux/advert/advertSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../ModalCard/Modal';
+// import { selectFavorites } from '../../../redux/advert/advertSelectors';
 
 export const Card = ({ card, onClick }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showModal, setShowModal] = useState(false); // Стан для відображення модального вікна
 
   const iconHeart = isFavorite ? 'heart-red' : 'like';
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const favoriteFromStorage = localStorage.getItem(`favorite_${card._id}`);
+    if (favoriteFromStorage !== null) {
+      setIsFavorite(true);
+    }
+  }, [card._id]);
+
   const handleSelectFavorite = () => {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
       dispatch(addToFavorite(card));
+      localStorage.setItem(`favorite_${card._id}`, 'true');
     } else {
-      dispatch(removeFromFavorite(card._id));
+      dispatch(removeFromFavorite(card.id));
+      localStorage.removeItem(`favorite_${card._id}`);
     }
+  };
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
   return (
     <CardWrapper>
@@ -113,8 +133,10 @@ export const Card = ({ card, onClick }) => {
             {card.details.airConditioner} AC
           </ListItem>
         </ListOfInformation>
-        <Button onClick={onClick}>Show more</Button>
+        <Button onClick={openModal}>Show more</Button>{' '}
+        {/* Замінено onClick={onClick} */}
       </InformationWrapper>
+      {showModal && <Modal item={card} onClose={closeModal} />}
     </CardWrapper>
   );
 };

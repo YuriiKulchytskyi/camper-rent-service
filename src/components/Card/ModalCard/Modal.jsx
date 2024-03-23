@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   AdditionalNaw,
@@ -19,10 +19,12 @@ import {
   SectionModal,
   StyledLink,
 } from './ModalCard.styled';
-// import { FeatureDetails } from 'components/Features/Details/FeatureDetails';
-// import { FeaturesOptions } from 'components/Features/FeaturesOptions/FeaturesOptions';
+import { Feature } from 'components/Features/Feature';
+import { Reviews } from 'components/Reviews/Reviews';
 
 const Modal = ({ onClose, item }) => {
+  const [activeTab, setActiveTab] = useState('features');
+
   useEffect(() => {
     const handleEsc = event => {
       if (event.key === 'Escape') {
@@ -44,6 +46,10 @@ const Modal = ({ onClose, item }) => {
       window.removeEventListener('click', handleClickOutside);
     };
   }, [onClose]);
+
+  const handleTabChange = tab => {
+    setActiveTab(tab);
+  };
 
   return (
     <Backdrop>
@@ -75,9 +81,23 @@ const Modal = ({ onClose, item }) => {
             <ModalDescription>{item.description}</ModalDescription>
           </ModalTechInfo>
           <AdditionalNaw>
-            <StyledLink to="/catalog/features">Features</StyledLink>
-            <StyledLink to="reviews">Reviews</StyledLink>
+            <StyledLink
+              to="features"
+              onClick={() => handleTabChange('features')}
+              active={activeTab === 'features'}
+            >
+              Features
+            </StyledLink>
+            <StyledLink
+              to="reviews"
+              onClick={() => handleTabChange('reviews')}
+              active={activeTab === 'reviews'}
+            >
+              Reviews
+            </StyledLink>
           </AdditionalNaw>
+          {activeTab === 'features' && <Feature item={item} />}
+          {activeTab === 'reviews' && <Reviews item={item} />}
         </SectionModal>
       </ModalContent>
     </Backdrop>

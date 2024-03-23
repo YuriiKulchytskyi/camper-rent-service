@@ -21,6 +21,7 @@ export const FeaturesOptionsItem = styled.li `
    display: flex;
    flex-direction: row;
    width: auto;
+   height: 20px;
    padding: 12px 18px;
    border-radius: 100px;
    gap: 8px;
@@ -30,5 +31,4 @@ export const FeaturesOptionsItem = styled.li `
    font-weight: 500;
    line-height: 20px;
    text-align: center;
-  /* border: 1px solid black; */
 `

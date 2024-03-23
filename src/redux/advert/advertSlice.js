@@ -14,54 +14,47 @@ const advertsSlice = createSlice({
         error: null,
         favorites: [],
       },
-      reducer: {
-        updateFavorites(state, action) {
-          state.favorites = action.payload;
+      reducers: {
+        addToFavorite(state, action) {
+          state.favorites.push(action.payload)
         },
-        addFavorites(state, action) {
-          state.favorites.push(action.payload);
-        },
-
-        removeFavorites(state, action) {
-          state.favorites = state.favorites.filter(
-            (camper) => camper.id !== action.payload.id
-          );
+        removeFromFavorite(state, action) {
+          const index = state.favorites.findIndex((item) => item.id === action.payload)
+          state.favorites.splice(index, 1)
         }
+      },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchAdverts.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAdverts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.adverts = action.payload;
+      })
+      .addCase(fetchAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getAdvertById.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getAdvertById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.favorites.push(action.payload);
+      })
+      .addCase(getAdvertById.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
 
-        },
-        extraReducers: builder => {
-          builder
-            .addCase(fetchAdverts.pending, state => {
-              state.isLoading = true;
-            })
-            .addCase(fetchAdverts.fulfilled, (state, action) => {
-              state.isLoading = false;
-              state.error = null;
-              state.adverts = action.payload;
-            })
-            .addCase(fetchAdverts.rejected, (state, action) => {
-              state.isLoading = false;
-              state.error = action.payload;
-            })
-            .addCase(getAdvertById.pending, state => {
-              state.isLoading = true;
-            })
-            .addCase(getAdvertById.fulfilled, (state, action) => {
-              state.isLoading = false;
-              state.favorites.push(action.payload);
-            })
-            .addCase(getAdvertById.rejected, (state, action) => {
-              state.error = action.payload;
-              state.isLoading = false;
-            })
 
+  }
+});
 
-        }
-      });
+export const {
+  addToFavorite, removeFromFavorite
+} = advertsSlice.actions
 
-    export const {
-      addToFavorite,
-      removeFromFavorite
-    } = advertsSlice.actions
-
-    export const advertsReducer = advertsSlice.reducer;
+export const advertsReducer = advertsSlice.reducer;

@@ -4,21 +4,20 @@ import { useEffect, useState } from 'react';
 import Modal from 'components/Card/ModalCard/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAdverts } from '../../redux/advert/advertOperations';
-import { getAdverts} from '../../redux/advert/advertSelectors';
+import { getAdverts } from '../../redux/advert/advertSelectors';
 
 export const List = () => {
   const [visibleItems, setVisibleItems] = useState(4);
   const [selectedItem, setSelectedItem] = useState();
   const dispatch = useDispatch();
   const adverts = useSelector(getAdverts);
-  
+
   useEffect(() => {
     dispatch(fetchAdverts());
   }, [dispatch]);
 
   const openModal = item => {
     setSelectedItem(item);
- 
   };
 
   const closeModal = () => {
