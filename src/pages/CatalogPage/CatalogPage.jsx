@@ -1,6 +1,5 @@
 import { Header } from 'components/Header/Header';
 import { List } from 'components/List/List';
-import datebase from '../../db/datebase.json';
 import {
   CardHolder,
   Container,
@@ -16,7 +15,7 @@ export const CatalogPage = () => {
         <MainWrapper>
           <SideMenu />
           <CardHolder>
-            <List datebase={datebase} />
+            <List/>
           </CardHolder>
         </MainWrapper>
       </Container>

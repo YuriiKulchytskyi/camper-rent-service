@@ -105,10 +105,10 @@ export const Svg = styled.svg `
   stroke: ${colors.dark};
   ${({isLiked}) => isLiked &&
       `
-    use {
-      fill: red; /* Змінюємо колір SVG на червоний, коли кнопка "лайкнута" */
-    }
-  `
+use {
+  fill: red; /* Змінюємо колір SVG на червоний, коли кнопка "лайкнута" */
+}
+`
   }
 
 `
@@ -119,11 +119,6 @@ export const ButtonLike = styled.button `
     margin: 0;
     padding: 0;
 
-    &:hover {
-        &>svg{
-        fill: red;
-        }
-    }
     
 `
 

@@ -1,15 +1,15 @@
 import {
   configureStore
 } from "@reduxjs/toolkit";
+import { advertsReducer } from "./advert/advertSlice";
+import { filterReducer } from "./filter/filterSlice";
 
-import {
-  combineReducers
-} from 'redux';
-import advertsReducer from './advertsSlice';
+const store = configureStore({
+  reducer: {
+    adverts: advertsReducer,
+    filter: filterReducer,
+  }
+})
 
-const rootReducer = combineReducers({
-  adverts: advertsReducer,
-  // Додайте інші редуктори, якщо вони є
-});
 
-export default rootReducer;
+export default store;

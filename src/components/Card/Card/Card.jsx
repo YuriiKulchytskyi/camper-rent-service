@@ -19,9 +19,28 @@ import {
   ImageWrapper,
 } from './Card.styled';
 import icons from '../../../images/icons.svg';
-// import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  addToFavorite,
+  removeFromFavorite,
+} from '../../../redux/advert/advertSlice';
+import { useState } from 'react';
 
 export const Card = ({ card, onClick }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const iconHeart = isFavorite ? 'heart-red' : 'like';
+
+  const dispatch = useDispatch();
+
+  const handleSelectFavorite = () => {
+    setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      dispatch(addToFavorite(card));
+    } else {
+      dispatch(removeFromFavorite(card._id));
+    }
+  };
   return (
     <CardWrapper>
       <ImageWrapper>
@@ -33,9 +52,9 @@ export const Card = ({ card, onClick }) => {
             <Title>{card.name}</Title>
             <PriceLikeSection>
               <Price>€{card.price},00</Price>
-              <ButtonLike>
+              <ButtonLike onClick={handleSelectFavorite}>
                 <Svg width={'24px'} height={'24px'}>
-                  <use href={`${icons}#icon-like`}></use>
+                  <use href={`${icons}#icon-${iconHeart}`}></use>
                 </Svg>
               </ButtonLike>
             </PriceLikeSection>
