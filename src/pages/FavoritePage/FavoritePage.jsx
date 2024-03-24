@@ -21,15 +21,29 @@ export const FavoritePage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedFavorites = favoritesIds
-      .map(id => {
-        const favorite = JSON.parse(localStorage.getItem(id));
-        return favorite && favorite._id ? favorite : null;
-      })
-      .filter(favorite => favorite !== null);
+useEffect(() => {
+  const storedFavorites = favoritesIds
+    .map(id => {
+      const favoriteString = localStorage.getItem(id);
+      if (favoriteString) {
+        try {
+          const favorite = JSON.parse(favoriteString);
+          if (favorite && favorite._id) {
+            return favorite;
+          }
+        } catch (error) {
+          console.error('Error parsing favorite:', error);
+        }
+      }
+      return null;
+    })
+    .filter(favorite => favorite !== null);
+
+
+  if (JSON.stringify(storedFavorites) !== JSON.stringify(favorites)) {
     setFavorites(storedFavorites);
-  }, []);
+  }
+}, [favoritesIds, favorites]); 
   const handleDislike = id => {
     localStorage.removeItem(`favorite_${id}`);
     const updatedFavorites = favorites.filter(favorite => favorite._id !== id);
