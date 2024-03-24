@@ -4,42 +4,31 @@ export const ButtonWrapper = styled.div `
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+
+
 `
 
-export const Label = styled.label `
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
+export const BackgroundWrapper = styled.div `
+position: relative;
+flex-direction: column;
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+`
+export const DescriptionWrapper = styled.div `
+position: absolute;
+  width: 550px;
+  height: auto;
+  right: 450px;
+  top: 100px;
+`
+export const HomeTitle = styled.h1 `
+    font-style: oblique;
+`
 
-  /* Змінюємо колір рамки, коли чекбокс вибраний */
-  & input[type = 'checkbox']:checked + p {
-    border-color: red;
-  }
-`;
-
-export const Input = styled.input `
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-
-  /* Змінюємо колір рамки label при виборі чекбокса */
-  &:checked + p {
-    /* Стилізація тексту, коли чекбокс вибраний */
-    font-weight: bold;
-  }
-`;
-
-export const Text = styled.span `
-  /* Стилізація тексту */
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 10px;
-`;
+export const Description = styled.p `
+    font-size: larger;
+    color: #101828;
+`

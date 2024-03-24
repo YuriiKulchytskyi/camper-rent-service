@@ -20,7 +20,7 @@ export const LoadMoreBtn = styled.button `
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(250%, 50%);
+    transform: translateX(250%);
 
 
 `

@@ -41,6 +41,7 @@ export const ListOption = styled.li `
 height: 100%;
 width: 100%;
 border: 1px solid ${colors.grey};
+background-color: rgba(255, 255, 255, 0.8);
 border-radius: 10px;
 display: flex;
 align-items: center;
@@ -105,10 +106,12 @@ export const EquipmentList = styled.ul `
     padding: 0;
 `
 
-export const EquipmentItem = styled.li `
+
+export const EquipmentItem = styled.label `
     width: 112px;
     height: 95px;
     border: 1px solid ${colors.grey};
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -150,3 +153,22 @@ export const RadioButton = styled.input `
     }
 
 `
+
+
+export const Span = styled.span `
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+`;

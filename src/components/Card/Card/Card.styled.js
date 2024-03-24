@@ -6,14 +6,16 @@ import styled from "styled-components";
 export const CardWrapper = styled.div `
 width: 888px;
 height: 358px;
-border: 1px solid ${colors.dark};
+border: 1px solid transparent;
+background-color: rgba(256,  256, 256 , 0.8);
 border-radius: 20px;
 box-sizing: border-box;
 padding: 20px;
 display: flex;
 flex-direction: row;
 column-gap: 20px;
-font-family: 'Inter Tight', sans-serif;
+font-family: 'Inter', sans-serif;
+backdrop-filter: blur(-20px);
 
 `
 export const ImageWrapper = styled.div `
@@ -81,8 +83,8 @@ font-family: 'Inter Tight', sans-serif;
 export const Price = styled.h2 `
     height: 30px;
     width: auto;
-    font-family: 'Inter Tight';
-    font-weight: 600;
+    font-family: 'Inter';
+    font-weight: 800;
     margin: 0;
     font-size: 24px;
 

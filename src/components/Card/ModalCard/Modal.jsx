@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
 import {
-  AdditionalNaw,
+  AdditionalNav,
   Backdrop,
+  InfoContainer,
+  InfoFormContainer,
   Location,
   ModalCloseButton,
   ModalContent,
@@ -19,8 +20,11 @@ import {
   SectionModal,
   StyledLink,
 } from './ModalCard.styled';
+import icons from '../../../images/icons.svg';
 import { Feature } from 'components/Features/Feature';
 import { Reviews } from 'components/Reviews/Reviews';
+import { BookingForm } from 'components/BookingForm/BoockingForm';
+import { Svg } from '../Card/Card.styled';
 
 const Modal = ({ onClose, item }) => {
   const [activeTab, setActiveTab] = useState('features');
@@ -52,13 +56,16 @@ const Modal = ({ onClose, item }) => {
   };
 
   return (
-    <Backdrop>
+    <Backdrop className="backdrop">
       <ModalContent>
         <SectionModal>
           <ModalInformationWrapper>
             <ModalTitle>{item.name}</ModalTitle>
             <ModalRateLocationWrapper>
               <Rate>
+                <Svg width={'16px'} height={'16px'}>
+                  <use href={`${icons}#icon-star`} />
+                </Svg>
                 {item.rating}({item.reviews.length} reviews)
               </Rate>
               <Location>{item.location}</Location>
@@ -80,24 +87,24 @@ const Modal = ({ onClose, item }) => {
             </ModalGallery>
             <ModalDescription>{item.description}</ModalDescription>
           </ModalTechInfo>
-          <AdditionalNaw>
+          <AdditionalNav>
             <StyledLink
               to="features"
               onClick={() => handleTabChange('features')}
-              active={activeTab === 'features'}
             >
               Features
             </StyledLink>
-            <StyledLink
-              to="reviews"
-              onClick={() => handleTabChange('reviews')}
-              active={activeTab === 'reviews'}
-            >
+            <StyledLink to="reviews" onClick={() => handleTabChange('reviews')}>
               Reviews
             </StyledLink>
-          </AdditionalNaw>
-          {activeTab === 'features' && <Feature item={item} />}
-          {activeTab === 'reviews' && <Reviews item={item} />}
+          </AdditionalNav>
+          <InfoFormContainer>
+            <InfoContainer>
+              {activeTab === 'features' && <Feature item={item} />}
+              {activeTab === 'reviews' && <Reviews item={item} />}
+            </InfoContainer>
+            <BookingForm />
+          </InfoFormContainer>
         </SectionModal>
       </ModalContent>
     </Backdrop>

@@ -4,6 +4,7 @@ import {
 import { advertsReducer } from "./advert/advertSlice";
 import { filterReducer } from "./filter/filterSlice";
 
+
 const store = configureStore({
   reducer: {
     adverts: advertsReducer,

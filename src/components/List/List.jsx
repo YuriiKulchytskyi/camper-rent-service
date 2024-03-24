@@ -32,7 +32,7 @@ export const List = () => {
     <>
       <ListofItems>
         {adverts.slice(0, visibleItems).map(item => (
-          <Card key={item._id} card={item} onClick={() => openModal(item)} />
+          <Card key={item._id} card={item}/>
         ))}
         {visibleItems < adverts.length && (
           <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>

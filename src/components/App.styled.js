@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div `
-    width: 1440px;  
+    /* width: 1440px;   */
+    
     flex-direction: row;
     display: flex;
     padding: 0 100px;

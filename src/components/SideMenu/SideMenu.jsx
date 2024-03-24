@@ -1,14 +1,14 @@
-import { Filters, SideFilters } from "components/App.styled";
-import { Location } from "./Location/Location";
-import { LocationTitle } from "./Location/Location.styled";
-import { VehicleEquipment } from "./Vehicle/VehicleEquipment";
-import { VehicleType } from "./Vehicle/VehicleType";
-import { Button } from "./Button/Button";
+import { Filters, SideFilters } from 'components/App.styled';
+import { Location } from './Location/Location';
+import { LocationTitle } from './Location/Location.styled';
+import { VehicleEquipment } from './Vehicle/VehicleEquipment';
+import { VehicleType } from './Vehicle/VehicleType';
+import { Button } from './Button/Button';
 
 export const SideMenu = () => {
-    return (
-      <>
-        <SideFilters>
+  return (
+    <>
+      <SideFilters>
           <Location />
           <Filters>
             <LocationTitle>Filters</LocationTitle>
@@ -16,8 +16,8 @@ export const SideMenu = () => {
             <VehicleType />
           </Filters>
           <Button />
-        </SideFilters>
-      </>
-    );
+        </SideFilters> 
 
-}
+    </>
+  );
+};

@@ -15,12 +15,16 @@ export const SectionModal = styled.section `
     background-color: ${colors.white};
     box-sizing: border-box;
     border-radius: 20px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
+    overflow-y: auto;
     overflow-x: hidden;
-    overflow-y:unset;
-
+    &::-webkit-scrollbar {
+          width: 3px;
+        }
+    &::-webkit-scrollbar-track {
+          border-radius: 50px;
+          margin: 25px 0;
+          background-color: ${colors.lightGrey};
+        }
 
 `
 export const ModalInformationWrapper = styled.div `
@@ -110,7 +114,7 @@ export const ModalItemImage = styled.img `
     transition: .5s ease-in-out;
      &:hover {
        transform: scale(1.1);
-       object-fit: fill;
+       /* object-fit: fill; */
      }
 `
 export const ModalTechInfo = styled.div `
@@ -150,7 +154,7 @@ export const ModalContent = styled.div `
         
 `
 
-export const AdditionalNaw = styled.nav `
+export const AdditionalNav = styled.nav `
   margin-top: 44px;
   margin-bottom: 68px;
   display: flex;
@@ -158,8 +162,7 @@ export const AdditionalNaw = styled.nav `
   gap: 36px;
   position: relative;
 
-  &
-  ::after {
+  &::after {
     position: absolute;
     content: '';
     background-color: rgba(16, 24, 40, 0.2);
@@ -192,3 +195,15 @@ export const StyledLink = styled(NavLink)
     }
   }
 `;
+
+export const InfoFormContainer = styled.div `
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+`
+
+export const InfoContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  height: 530px;
+`

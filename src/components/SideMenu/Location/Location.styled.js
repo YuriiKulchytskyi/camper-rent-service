@@ -21,6 +21,7 @@ export const LocationInput = styled.input `
     box-sizing: border-box;
     width: 100%;
     height: 58px;
+    background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 10px;
     background-color: ${colors.lightGrey};
