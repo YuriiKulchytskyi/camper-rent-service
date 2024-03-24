@@ -105,10 +105,8 @@ export const Svg = styled.svg `
   transition: stroke 0.3s ease;
   fill: none;
   stroke: ${colors.dark};
-  ${({isLiked}) => isLiked &&
-      `
-use {
-  fill: red; /* Змінюємо колір SVG на червоний, коли кнопка "лайкнута" */
+  ${({isLiked}) => isLiked && `use {
+  fill: red;
 }
 `
   }

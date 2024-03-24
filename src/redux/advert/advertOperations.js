@@ -1,4 +1,3 @@
-// https: //dda90f8246ba4dd880e783a7fa64b647.api.mockbin.io/
 
 import {
   createAsyncThunk

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Formik, ErrorMessage } from 'formik';
-import CustomDatePicker from './CustomDatepicker'; // Шлях до вашого власного компонента
 import {
   BookingFormSpan,
   BookingFormTitle,
@@ -27,32 +26,38 @@ const validate = values => {
   }
 
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = 'Required email';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
   }
 
   if (!values.date) {
-    errors.date = 'Required';
+    errors.date = 'Required correct date';
+  } else if (new Date(values.date) < new Date()) {
+    errors.date = 'Booking date cannot be in the past';
   }
 
-  if (!values.comment) {
-    errors.comment = 'Required';
-  }
+  // if (!values.comment) {
+  //   // errors.comment = 'Required';
+  // }
 
   return errors;
 };
 
-const onSubmit = (values, { resetForm }) => {
-  // Тут ви можете реалізувати логіку відправки даних, наприклад, за допомогою AJAX запиту
+const onSubmit = (values, { resetForm, setSubmitting }) => {
+  if (!values.name || !values.email) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
   console.log(values);
   resetForm();
 };
 
 export const BookingForm = () => (
   <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
-    {() => (
-      <Form>
+    {({ handleSubmit, isSubmitting }) => (
+      <Form onSubmit={handleSubmit}>
         <BookingTitle>
           <BookingFormTitle>Book your campervan now</BookingFormTitle>
           <BookingFormSpan>
@@ -77,11 +82,6 @@ export const BookingForm = () => (
             <Input type="date" id="date" name="date" placeholder="Date" />
             <ErrorMessage name="date" component="div" />
           </div>
-          {/* <div>
-            <label htmlFor="date">Date</label>
-            <CustomDatePicker id="date" name="date" />
-            <ErrorMessage name="date" component="div" />
-          </div> */}
 
           <div>
             <label htmlFor="comment"></label>
@@ -95,7 +95,9 @@ export const BookingForm = () => (
           </div>
         </InputHolder>
 
-        <Button type="submit">Send</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          Send
+        </Button>
       </Form>
     )}
   </Formik>

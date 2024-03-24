@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div `
-    /* width: 1440px;   */
     
     flex-direction: row;
     display: flex;
@@ -21,7 +20,6 @@ export const Container = styled.div `
     height: 100%;
     display: flex;
     justify-content: center;
-    /* margin-top: 100px; */
 `
 export const CardHolder = styled.div `
     margin-left: 360px;

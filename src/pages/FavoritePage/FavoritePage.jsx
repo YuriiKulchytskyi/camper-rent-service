@@ -1,20 +1,15 @@
-// FavoritePage.js
-
 import { useEffect, useState } from 'react';
 import { Card } from 'components/Card/Card/Card';
 import { Header } from 'components/Header/Header';
 import { ListofItems } from 'components/List/List.styled';
-import { useSelector } from 'react-redux';
 import {
   BackgroundWrapper,
-  BluredBorder,
   FavoriteWrapper,
   ImageWrapper,
   ListWrapper,
   ReturnButton,
   SvgCamper,
 } from './FavoritePage.styled';
-import { selectFavorites } from '../../redux/advert/advertSelectors';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../images/icons.svg';
 
@@ -26,15 +21,15 @@ export const FavoritePage = () => {
 
   const navigate = useNavigate();
 
- useEffect(() => {
-   const storedFavorites = favoritesIds
-     .map(id => {
-       const favorite = JSON.parse(localStorage.getItem(id));
-       return favorite && favorite._id ? favorite : null;
-     })
-     .filter(favorite => favorite !== null);
-   setFavorites(storedFavorites);
- }, []);
+  useEffect(() => {
+    const storedFavorites = favoritesIds
+      .map(id => {
+        const favorite = JSON.parse(localStorage.getItem(id));
+        return favorite && favorite._id ? favorite : null;
+      })
+      .filter(favorite => favorite !== null);
+    setFavorites(storedFavorites);
+  }, []);
   const handleDislike = id => {
     localStorage.removeItem(`favorite_${id}`);
     const updatedFavorites = favorites.filter(favorite => favorite._id !== id);

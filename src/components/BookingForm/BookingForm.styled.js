@@ -34,7 +34,6 @@ export const BookingFormTitle = styled.h3 `
     margin: 0;
 `
 export const BookingFormSpan = styled.span `
-    /* font - family: Inter; */
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -50,6 +49,7 @@ export const Form = styled.form `
     display: flex;
     flex-direction: column;
     row-gap: 24px;
+    box-sizing: border-box;
 `
 
 export const TextArea = styled.textarea `

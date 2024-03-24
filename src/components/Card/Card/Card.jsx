@@ -46,7 +46,7 @@ export const Card = ({ card }) => {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
       dispatch(addToFavorite(card));
-      localStorage.setItem(`favorite_${card._id}`, JSON.stringify(card)); // Збереження об'єкта у локальному сховищі
+      localStorage.setItem(`favorite_${card._id}`, JSON.stringify(card));
     } else {
       dispatch(removeFromFavorite(card.id));
       localStorage.removeItem(`favorite_${card._id}`);

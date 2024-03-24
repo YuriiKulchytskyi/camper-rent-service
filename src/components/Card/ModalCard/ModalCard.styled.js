@@ -114,7 +114,6 @@ export const ModalItemImage = styled.img `
     transition: .5s ease-in-out;
      &:hover {
        transform: scale(1.1);
-       /* object-fit: fill; */
      }
 `
 export const ModalTechInfo = styled.div `
@@ -171,8 +170,7 @@ export const AdditionalNav = styled.nav `
     bottom: -24px;
   }
 `
-export const StyledLink = styled(NavLink)
-`
+export const StyledLink = styled(NavLink)`
   color: ${colors.grey};
   text-decoration: none;
   display: flex;

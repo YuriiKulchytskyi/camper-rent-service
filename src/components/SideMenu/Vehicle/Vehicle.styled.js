@@ -41,7 +41,7 @@ export const ListOption = styled.li `
 height: 100%;
 width: 100%;
 border: 1px solid ${colors.grey};
-background-color: rgba(255, 255, 255, 0.8);
+background-color: ${colors.white};
 border-radius: 10px;
 display: flex;
 align-items: center;
@@ -111,7 +111,7 @@ export const EquipmentItem = styled.label `
     width: 112px;
     height: 95px;
     border: 1px solid ${colors.grey};
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: ${colors.white};
     border-radius: 10px;
     display: flex;
     flex-direction: column;

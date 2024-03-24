@@ -41,6 +41,26 @@ export const FeaturesOptions = ({ item }) => {
       label: `${item.details.hob} Hob`,
       condition: item.details.hob !== 0,
     },
+    {
+      icon: 'freezer',
+      label: `${item.details.freezer} Freezer`,
+      condition: item.details.freezer !== 0,
+    },
+    {
+      icon: 'gas',
+      label: `${item.details.gas} Gas`,
+      condition: item.details.gas !== 0,
+    },
+    {
+      icon: 'water',
+      label: `${item.details.water} Water`,
+      condition: item.details.water !== 0,
+    },
+    {
+      icon: 'toilet-paper',
+      label: `${item.details.toilet} Toilet`,
+      condition: item.details.toilet !== 0,
+    },
   ].filter(({ condition }) => condition !== false && condition !== undefined);
 
   return (
